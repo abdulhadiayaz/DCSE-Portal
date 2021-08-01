@@ -24,10 +24,10 @@
                     <div class="col-md-6">
                         <h3 class="footer-heading mb-4 text-white">Categories</h3>
                         <ul class="list-unstyled">
-                            <li><a href="#">Full Time</a></li>
-                            <li><a href="#">Freelance</a></li>
-                            <li><a href="#">Temporary</a></li>
-                            <li><a href="#">Internship</a></li>
+                            <li><a href="#">Web</a></li>
+                            <li><a href="#">Mobile</a></li>
+                            <li><a href="#">Cybersec</a></li>
+                            <li><a href="#">AI</a></li>
                         </ul>
                     </div>
                 </div>

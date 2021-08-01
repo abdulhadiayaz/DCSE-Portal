@@ -10,13 +10,13 @@
                 @foreach($jobs as $job)
                     <a href="{{ route('job.show', [$job->id, $job->slug]) }}" class="job-item d-block d-md-flex align-items-center  border-bottom fulltime">
                         <div class="company-logo blank-logo text-center text-md-left pl-3">
-                            <img src="{{ asset($job->company->logo) }}" alt="Image" class="img-fluid mx-auto">
+                            <img src="{{ asset($job->advisor->logo) }}" alt="Image" class="img-fluid mx-auto">
                         </div>
                         <div class="job-details h-100">
                             <div class="p-3 align-self-center">
                                 <h3>{{ $job->position }}</h3>
                                 <div class="d-block d-lg-flex">
-                                    <div class="mr-3"><span class="icon-home2 mr-1">{{ $job->company->company_name }}</span> </div>
+                                    <div class="mr-3"><span class="icon-home2 mr-1">{{ $job->advisor->advisor_name }}</span> </div>
                                     <div class="mr-3"><span class="icon-room mr-1"></span> {{ $job->address }}</div>
                                     <div><span class="icon-money mr-1"></span> {{ $job->salary }}</div>
                                 </div>

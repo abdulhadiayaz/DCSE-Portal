@@ -23,7 +23,7 @@
                 <div class="card-header">Short Info</div>
 
                 <div class="card-body">
-                    <p><b><i class="fa fa-home"></i> Company:</b> <a href="{{ route('company.show', [$job->company->id, $job->company->slug]) }}">{{ $job->company->company_name }}</a></p>
+                    <p><b><i class="fa fa-home"></i> Advisor:</b> <a href="{{ route('advisor.show', [$job->advisor->id, $job->advisor->slug]) }}">{{ $job->advisor->advisor_name }}</a></p>
                     <p><b><i class="fa fa-map-marker"></i> Address:</b> {{ $job->address  }}</p>
                     <p><b><i class="fa fa-clock-o"></i> Employment Type:</b> {{ $job->type }}</p>
                     <p><b><i class="fa fa-suitcase"></i> Position</b> {{ $job->position }}</p>

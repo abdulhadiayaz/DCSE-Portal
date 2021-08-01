@@ -5,12 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class Company extends Model
+class Advisor extends Model
 {
     //
     protected $fillable = [
         'user_id',
-        'company_name',
+        'advisor_name',
         'slug',
         'address',
         'phone',
@@ -29,7 +29,7 @@ class Company extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function getCompanyNameAttribute($value){
+    public function getAdvisorNameAttribute($value){
         return Str::title($value);
     }
 

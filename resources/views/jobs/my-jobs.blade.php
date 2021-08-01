@@ -14,7 +14,7 @@
                             <tbody>
                             @foreach($jobs as $job)
                                 <tr class="table-row" data-href="{{ route('job.show', [$job->id, $job->slug]) }}">
-                                    <td><img src="{{ asset($job->company->logo) }}" width="70"></td>
+                                    <td><img src="{{ asset($job->advisor->logo) }}" width="70"></td>
                                     <td><a href="{{ route('job.show', [$job->id, $job->slug]) }}" class="fa"><span style="font-size: 17px;">{{ Str::title($job->position) }}</span></a>
                                         <br>
                                         <i class="fa fa-clock-o"></i> <span style="font-size: 15px;">{{ $job->type }}</span>

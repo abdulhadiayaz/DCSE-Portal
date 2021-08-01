@@ -16,7 +16,7 @@ class CreateJobsTable extends Migration
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('company_id');
+            $table->integer('advisor_id');
             $table->string('category_id');
             $table->string('title');
             $table->string('slug');

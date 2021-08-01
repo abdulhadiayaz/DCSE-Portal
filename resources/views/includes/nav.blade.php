@@ -23,7 +23,7 @@
                                 <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
 
                                 <ul class="site-menu js-clone-nav d-none d-lg-block">
-                                    <li><a href="{{ route('company') }}">Profiles</a></li>
+                                    <li><a href="{{ route('advisor') }}">Profiles</a></li>
                                     @auth
                                         @if(Auth::user()->user_type == 'helper')
                                             <li><a href="{{ route('job.create') }}"><span class="bg-primary btn btn-primary btn-lg rounded"><span class="icon-plus mr-3"></span>Add New Profile</span></a></li>
@@ -39,7 +39,7 @@
                                                         <a class="dropdown-item" href="{{ route('user.profile') }}">{{ __('Profile') }}</a>
                                                         <a class="dropdown-item" href="{{ route('home') }}">{{ __('Saved Jobs') }}</a>
                                                     @elseif(Auth::user()->user_type == 'helper')
-                                                        <a class="dropdown-item" href="{{ route('company.profile') }}">{{ __('Company Profile') }}</a>
+                                                        <a class="dropdown-item" href="{{ route('advisor.profile') }}">{{ __('Advisor Profile') }}</a>
                                                         <a class="dropdown-item" href="{{ route('jobs.applicants') }}">{{ __('Applicants') }}</a>
                                                         <a class="dropdown-item" href="{{ route('job.my.jobs') }}">{{ __('My Jobs') }}</a>
                                                     @endif

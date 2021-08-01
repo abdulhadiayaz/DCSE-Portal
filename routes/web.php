@@ -37,13 +37,13 @@ Route::get('/unsave/{id}', 'FavouriteController@unSaveJob');
 ///////////////////////////// Search Jobs //////////////////////
 Route::post('/jobs/search', 'JobController@searchJobs');
 
-// Companies
-Route::get('/companies', 'CompanyController@company')->name('company');
-Route::get('/company/{id}/{slug}', 'CompanyController@show')->name('company.show');
-Route::get('/company/profile', 'CompanyController@companyProfile')->name('company.profile');
-Route::post('/company/profile/update', 'CompanyController@companyProfileUpdate')->name('company.profile.update');
-Route::post('/company/profile/cover', 'CompanyController@companyProfileCover')->name('company.profile.cover');
-Route::post('/company/profile/logo', 'CompanyController@companyProfileLogo')->name('company.profile.logo');
+// advisors
+Route::get('/advisors', 'AdvisorController@advisor')->name('advisor');
+Route::get('/advisor/{id}/{slug}', 'AdvisorController@show')->name('advisor.show');
+Route::get('/advisor/profile', 'AdvisorController@advisorProfile')->name('advisor.profile');
+Route::post('/advisor/profile/update', 'AdvisorController@advisorProfileUpdate')->name('advisor.profile.update');
+Route::post('/advisor/profile/cover', 'AdvisorController@advisorProfileCover')->name('advisor.profile.cover');
+Route::post('/advisor/profile/logo', 'AdvisorController@advisorProfileLogo')->name('advisor.profile.logo');
 
 
 // User Profile

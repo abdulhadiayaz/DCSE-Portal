@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use App\Company;
+use App\Advisor;
 use App\Http\Requests\JobRequest;
 use App\Job;
 use Illuminate\Http\Request;
@@ -21,7 +21,7 @@ class JobController extends Controller
     public function index(){
         $jobs = Job::latest()->where('status', 1)->whereDate('deadline','>',date('Y-F-d'))->limit(10)->get();
         $categories = Category::with('jobs')->get();
-//        $companies = Company::all()->random(8);
+//        $companies = Advisor::all()->random(8);
         return view('welcome', compact('jobs', 'categories'));
     }
 
@@ -37,7 +37,7 @@ class JobController extends Controller
             ->limit(6)
             ->get();
         $jobsBasedOnCompanies = Job::latest()
-            ->where('company_id', $job->company_id)
+            ->where('advisor_id', $job->advisor_id)
             ->whereDate('deadline','>',date('Y-F-d'))
             ->where('id', "!=", $job->id)
             ->where('status', 1)
@@ -61,7 +61,7 @@ class JobController extends Controller
     }
 
     public function myJobs(){
-        $jobs = Job::where('company_id', Auth::user()->company->id)->paginate(10);
+        $jobs = Job::where('advisor_id', Auth::user()->advisor->id)->paginate(10);
         return view('jobs.my-jobs', compact('jobs'));
     }
 
@@ -79,7 +79,7 @@ class JobController extends Controller
     public function store(JobRequest $request){
         $inputs = $request->all();
         $inputs['user_id'] = Auth::id();
-        $inputs['company_id'] = Auth::user()->company->id;
+        $inputs['advisor_id'] = Auth::user()->advisor->id;
         $inputs['slug'] = Str::slug($request->title);
         Job::create($inputs);
         return redirect()->back()->with('success', 'Job Created with Success');
@@ -110,7 +110,7 @@ class JobController extends Controller
         $search = $request->search;
         $address = $request->address;
         if ($search || $address){
-            $jobs = Job::with('company')->where('position', 'LIKE', '%'.$search.'%')
+            $jobs = Job::with('advisor')->where('position', 'LIKE', '%'.$search.'%')
                 ->orWhere('title','like', '%'.$search.'%' )
                 ->orWhere('type','like', '%'.$search.'%' )
                 ->orWhere('address','like', '%'.$search.'%' )

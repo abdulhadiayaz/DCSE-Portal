@@ -12,7 +12,7 @@ class Job extends Model
     //
     protected $fillable = [
         'user_id',
-        'company_id',
+        'advisor_id',
         'category_id',
         'title',
         'slug',
@@ -29,8 +29,8 @@ class Job extends Model
         'salary'
     ];
 
-    public function company(){
-        return $this->belongsTo(Company::class);
+    public function advisor(){
+        return $this->belongsTo(Advisor::class);
     }
 
     public function users(){

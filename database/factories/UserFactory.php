@@ -3,7 +3,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use App\Category;
-use App\Company;
+use App\Advisor;
 use App\Job;
 use App\User;
 use Faker\Generator as Faker;
@@ -32,10 +32,10 @@ $factory->define(User::class, function (Faker $faker) {
 });
 
 
-$factory->define(Company::class, function (Faker $faker) {
+$factory->define(Advisor::class, function (Faker $faker) {
     return [
         'user_id' => User::all()->random()->id,
-        'company_name' => $name = $faker->company,
+        'advisor_name' => $name = $faker->advisor,
         'slug' => Str::slug($name),
         'address' => $faker->address,
         'phone' => $faker->phoneNumber,
@@ -51,7 +51,7 @@ $factory->define(Company::class, function (Faker $faker) {
 $factory->define(Job::class, function (Faker $faker) {
     return [
         'user_id' => User::all()->random()->id,
-        'company_id' => Company::all()->random()->id,
+        'advisor_id' => Advisor::all()->random()->id,
         'category_id' => rand(1,5),
         'title' => $title = $faker->word,
         'slug' => Str::slug($title),

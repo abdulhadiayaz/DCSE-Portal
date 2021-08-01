@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Company;
+use App\Advisor;
 use App\Profile;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -27,22 +27,22 @@ class HelperRegisterController extends Controller
     protected function helperRegister(Request $request)
     {
         $this->validate($request, [
-            'company_name' => ['required', 'string', 'max:255'],
+            'advisor_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
         $user = User::create([
-            'name' => Str::title($request->company_name),
+            'name' => Str::title($request->advisor_name),
             'email' => $request->email,
             'user_type' => $request->user_type,
             'password' => Hash::make($request->password),
         ]);
 
-        Company::create([
+        Advisor::create([
             'user_id' => $user->id,
-            'company_name' => $request->company_name,
-            'slug' => Str::slug($request->company_name),
+            'advisor_name' => $request->advisor_name,
+            'slug' => Str::slug($request->advisor_name),
         ]);
 
         $user->sendEmailVerificationNotification();

@@ -52,7 +52,7 @@
                 <div class="col-md-4 p-4 site-section bg-light">
                     <ul class="list-group">
                         <li class="list-group-item text-center" style="background-color: #f8f9fa">Short Info</li>
-                        <li class="list-group-item"><i class="icon-home"></i> <strong>Company name: </strong><span class="float-right"> {{$job->company->company_name}}</span></li>
+                        <li class="list-group-item"><i class="icon-home"></i> <strong>Advisor name: </strong><span class="float-right"> {{$job->advisor->advisor_name}}</span></li>
                         <li class="list-group-item"><i class="icon-map-marker"></i> <strong>Address:</strong> <span class="float-right"> {{$job->address}}</span></li>
                         <li class="list-group-item"><i class="icon-globe"></i> <strong>Employment Type:</strong> <span class="float-right"> {{$job->type}}</span></li>
                         <li class="list-group-item"><i class="icon-briefcase"></i> <strong>Position:</strong> <span class="float-right"> {{$job->position}}</span></li>
@@ -60,7 +60,7 @@
                         <li class="list-group-item"><i class="icon-clock-o"></i> <strong>Deadline:</strong><span class="float-right"> {{ date('F d, Y', strtotime($job->last_date)) }}</span></li>
                     </ul>
 
-                    <p><a href="{{route('company.show',[$job->company->id, $job->company->slug])}}" class="btn btn-warning btn-block">Visit Company Page</a></p>
+                    <p><a href="{{route('advisor.show',[$job->advisor->id, $job->advisor->slug])}}" class="btn btn-warning btn-block">Visit Advisor Page</a></p>
                     <p>
                         @if(Auth::check() && Auth::user()->user_type=='seeker')
                             @if(!$job->checkApplication())

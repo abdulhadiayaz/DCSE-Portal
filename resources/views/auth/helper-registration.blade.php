@@ -17,14 +17,14 @@
 
                                     <div class="form-group row">
 
-                                        <div class="col-md-12">Company name</div>
+                                        <div class="col-md-12">Advisor name</div>
 
                                         <div class="col-md-12">
-                                            <input id="name" type="text" placeholder="Company name" class="form-control{{ $errors->has('company_name') ? ' is-invalid' : '' }}" name="company_name" value="{{ old('company_name') }}" required autofocus>
+                                            <input id="name" type="text" placeholder="Advisor name" class="form-control{{ $errors->has('advisor_name') ? ' is-invalid' : '' }}" name="advisor_name" value="{{ old('advisor_name') }}" required autofocus>
 
-                                            @if ($errors->has('company_name'))
+                                            @if ($errors->has('advisor_name'))
                                                 <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('company_name') }}</strong>
+                                                    <strong>{{ $errors->first('advisor_name') }}</strong>
                                                 </span>
                                             @endif
                                         </div>

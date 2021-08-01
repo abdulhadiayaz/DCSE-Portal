@@ -2,73 +2,73 @@
 
 namespace App\Http\Controllers;
 
-use App\Company;
-use App\Http\Requests\CompanyRequest;
+use App\Advisor;
+use App\Http\Requests\AdvisorRequest;
 use App\Job;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CompanyController extends Controller
+class AdvisorController extends Controller
 {
     //
     public function __construct()
     {
-        $this->middleware(['helper', 'verified'], ['except'=>['show', 'company']]);
+        $this->middleware(['helper', 'verified'], ['except'=>['show', 'advisor']]);
     }
 
     public function show($id, $slug){
-        $company = Company::whereId($id)->where('slug',$slug)->first();
-        return view('companies.show', compact('company'));
+        $advisor = Advisor::whereId($id)->where('slug',$slug)->first();
+        return view('companies.show', compact('advisor'));
     }
 
-    public function company(){
-        $companies = Company::paginate(12);
+    public function advisor(){
+        $companies = Advisor::paginate(12);
         return view('companies.companies', compact('companies'));
     }
 
-    public function companyProfile(){
+    public function advisorProfile(){
         return view('companies.profile');
     }
 
-    public function companyProfileUpdate(CompanyRequest $request){
+    public function advisorProfileUpdate(AdvisorRequest $request){
         $user_id = Auth::id();
-        Company::where('user_id', $user_id)->update($request->except('_token'));
+        Advisor::where('user_id', $user_id)->update($request->except('_token'));
         return redirect()->back()->with('success', 'Updated with success');
     }
 
-    public function companyProfileCover(Request $request){
+    public function advisorProfileCover(Request $request){
         $this->validate($request, [
             'cover_photo' => 'required|mimes:jpeg,png'
         ]);
 
-        if (Auth::user()->company->cover_photo){
-            unlink(Auth::user()->company->cover_photo);
+        if (Auth::user()->advisor->cover_photo){
+            unlink(Auth::user()->advisor->cover_photo);
         }
         $user_id = Auth::id();
         $image_path = 'cover/';
         $file = $request->file('cover_photo');
         $filename = hexdec(uniqid()).'.'.$file->getClientOriginalName();
         $file->move($image_path,$filename);
-        Company::where('user_id', $user_id)->update([
+        Advisor::where('user_id', $user_id)->update([
             'cover_photo' => $image_path.$filename
         ]);
         return redirect()->back()->with('success', 'Cover Photo Updated with Success');
     }
 
-    public function companyProfileLogo(Request $request){
+    public function advisorProfileLogo(Request $request){
         $this->validate($request, [
             'logo' => 'required|mimes:jpeg,png'
         ]);
 
-        if (Auth::user()->company->logo){
-            unlink(Auth::user()->company->logo);
+        if (Auth::user()->advisor->logo){
+            unlink(Auth::user()->advisor->logo);
         }
         $user_id = Auth::id();
         $image_path = 'avatar/';
         $file = $request->file('logo');
         $filename = hexdec(uniqid()).'.'.$file->getClientOriginalName();
         $file->move($image_path,$filename);
-        Company::where('user_id', $user_id)->update([
+        Advisor::where('user_id', $user_id)->update([
             'logo' => $image_path.$filename
         ]);
         return redirect()->back()->with('success', 'Logo Updated with Success');

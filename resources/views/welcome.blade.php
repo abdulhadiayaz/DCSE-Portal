@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{{ config('app.name', 'JobPortal') }}</title>
+    <title>{{ config('app.name', 'DCSE Portal') }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -23,19 +23,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="100">
-                    <h2 class="mb-5 h3">Recent Jobs</h2>
+                    <h2 class="mb-5 h3">Advisors who joined recently: </h2>
                     <div class="rounded border jobs-wrap">
 
                         @foreach($jobs as $job)
                             <a href="{{ route('job.show', [$job->id, $job->slug]) }}" class="job-item d-block d-md-flex align-items-center  border-bottom fulltime">
                                 <div class="company-logo blank-logo text-center text-md-left pl-3">
-                                    <img src="{{ $job->company->logo ? asset($job->company->logo) : asset('avatar/man.jpg') }}" alt="Image" class="img-fluid mx-auto">
+                                    <img src="{{ $job->advisor->logo ? asset($job->advisor->logo) : asset('avatar/man.jpg') }}" alt="Image" class="img-fluid mx-auto">
                                 </div>
                                 <div class="job-details h-100">
                                     <div class="p-3 align-self-center">
                                         <h3>{{ $job->position }}</h3>
                                         <div class="d-block d-lg-flex">
-                                            <div class="mr-3"><span class="icon-home2 mr-1">{{ $job->company->company_name }}</span> </div>
+                                            <div class="mr-3"><span class="icon-home2 mr-1">{{ $job->advisor->advisor_name }}</span> </div>
                                             <div class="mr-3"><span class="icon-room mr-1"></span> {{ $job->address }}</div>
                                             <div><span class="icon-money mr-1"></span> {{ $job->salary }}</div>
                                         </div>
@@ -75,10 +75,10 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-6 text-center" data-aos="fade">
-                    <h1 class="h3 mb-0">Your Dream Job</h1>
-                    <p class="h3 text-white mb-5">Is Waiting For You</p>
+                    <h1 class="h3 mb-0">Lorem Ipsum</h1>
+                    <p class="h3 text-white mb-5">What areyou Waiting For?</p>
                     <p>
-                        <a href="{{ route('register') }}" class="btn btn-outline-success py-3 px-4">Job Seeker</a>
+                        <a href="{{ route('register') }}" class="btn btn-outline-success py-3 px-4">Seek Help</a>
                         <a href="{{ route('helper') }}" class="btn btn-outline-warning py-3 px-4">Helper</a>
                     </p>
 
