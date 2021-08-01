@@ -15,7 +15,7 @@
             <div class="py-1">
                 <div class="row align-items-center">
                     <div class="col-2">
-                        <h2 class="mb-0 site-logo"><a href="{{ url('/') }}">Job<strong class="font-weight-bold">Portal</strong><sup><i class="icon-briefcase"></i></sup> </a></h2>
+                        <h2 class="mb-0 site-logo"><a href="{{ url('/') }}">D-<strong class="font-weight-bold">Portal</strong><sup><i class="icon-briefcase"></i></sup> </a></h2>
                     </div>
                     <div class="col-10">
                         <nav class="site-navigation text-right" role="navigation">
@@ -23,10 +23,10 @@
                                 <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
 
                                 <ul class="site-menu js-clone-nav d-none d-lg-block">
-                                    <li><a href="{{ route('company') }}">Companies</a></li>
+                                    <li><a href="{{ route('company') }}">Profiles</a></li>
                                     @auth
-                                        @if(Auth::user()->user_type == 'employer')
-                                            <li><a href="{{ route('job.create') }}"><span class="bg-primary btn btn-primary btn-lg rounded"><span class="icon-plus mr-3"></span>Post New Job</span></a></li>
+                                        @if(Auth::user()->user_type == 'helper')
+                                            <li><a href="{{ route('job.create') }}"><span class="bg-primary btn btn-primary btn-lg rounded"><span class="icon-plus mr-3"></span>Add New Profile</span></a></li>
                                         @endif
                                             <li class="nav-item dropdown">
 
@@ -38,7 +38,7 @@
                                                     @if(Auth::user()->user_type == 'seeker')
                                                         <a class="dropdown-item" href="{{ route('user.profile') }}">{{ __('Profile') }}</a>
                                                         <a class="dropdown-item" href="{{ route('home') }}">{{ __('Saved Jobs') }}</a>
-                                                    @elseif(Auth::user()->user_type == 'employer')
+                                                    @elseif(Auth::user()->user_type == 'helper')
                                                         <a class="dropdown-item" href="{{ route('company.profile') }}">{{ __('Company Profile') }}</a>
                                                         <a class="dropdown-item" href="{{ route('jobs.applicants') }}">{{ __('Applicants') }}</a>
                                                         <a class="dropdown-item" href="{{ route('job.my.jobs') }}">{{ __('My Jobs') }}</a>
@@ -55,8 +55,8 @@
                                                 </div>
                                             </li>
                                     @else
-                                        <li><a href="{{ route('register') }}">For Candidates</a></li>
-                                        <li><a href="{{ route('employer') }}">For Employers</a></li>
+                                        <li><a href="{{ route('register') }}">Seek Help</a></li>
+                                        <li><a href="{{ route('helper') }}">Want to Help</a></li>
                                         <li><a class="bg-primary text-white py-3 px-4 rounded" data-toggle="modal" data-target="#exampleModal"><i class="icon-sign-in"></i> Login</a></li>
                                     @endauth
                                 </ul>

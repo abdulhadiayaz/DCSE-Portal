@@ -53,9 +53,9 @@ Route::post('user/profile/update/cover', 'UserProfileController@profileSeekerCov
 Route::post('user/profile/update/resume', 'UserProfileController@profileSeekerResume')->name('profile.seeker.resume');
 Route::post('user/profile/update/avatar', 'UserProfileController@profileSeekerAvatar')->name('profile.seeker.avatar');
 
-// Employer
-Route::view('employer/registration', 'auth.employer-registration')->name('employer');
-Route::post('employer/register', 'EmployerRegisterController@employerRegister')->name('employer.register');
+// helper
+Route::view('helper/registration', 'auth.helper-registration')->name('helper');
+Route::post('helper/register', 'HelperRegisterController@helperRegister')->name('helper.register');
 
 // Category
 Route::get('category/{id}/jobs', 'CategoryController@index')->name('category.jobs');

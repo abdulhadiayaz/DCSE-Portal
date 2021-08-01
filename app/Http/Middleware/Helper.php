@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class Employer
+class Helper
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class Employer
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->user_type == 'employer'){
+        if (Auth::check() && Auth::user()->user_type == 'helper'){
             return $next($request);
         }
         else{

@@ -62,10 +62,10 @@
                             @endif
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('employer') }}">{{ __('Employer Registration') }}</a>
+                                <a class="nav-link" href="{{ route('helper') }}">{{ __('Helper Registration') }}</a>
                             </li>
                         @else
-                            @if(Auth::user()->user_type == 'employer')
+                            @if(Auth::user()->user_type == 'helper')
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('job.create') }}"><span class="btn btn-secondary">{{ __('Post a Job') }}</span></a>
                                 </li>
@@ -81,7 +81,7 @@
                                     @if(Auth::user()->user_type == 'seeker')
                                         <a class="dropdown-item" href="{{ route('user.profile') }}">{{ __('Profile') }}</a>
                                         <a class="dropdown-item" href="{{ route('home') }}">{{ __('Saved Jobs') }}</a>
-                                    @elseif(Auth::user()->user_type == 'employer')
+                                    @elseif(Auth::user()->user_type == 'helper')
                                         <a class="dropdown-item" href="{{ route('company.profile') }}">{{ __('Company Profile') }}</a>
                                         <a class="dropdown-item" href="{{ route('jobs.applicants') }}">{{ __('Applicants') }}</a>
                                         <a class="dropdown-item" href="{{ route('job.my.jobs') }}">{{ __('My Jobs') }}</a>

@@ -9,11 +9,11 @@
                         <div class="row">
                             <div class="col-md-12 col-lg-8 mb-5">
                                 @include('includes.flash_message')
-                                <h1 style="padding-left: 6rem">Employer Registration</h1>
-                                <form method="POST" action="{{ route('employer.register') }}" class="p-5 bg-white">
+                                <h1 style="padding-left: 6rem">Helper Registration</h1>
+                                <form method="POST" action="{{ route('helper.register') }}" class="p-5 bg-white">
                                     @csrf
 
-                                    <input type="hidden" value="employer" name="user_type">
+                                    <input type="hidden" value="helper" name="user_type">
 
                                     <div class="form-group row">
 
@@ -74,7 +74,7 @@
 
                                     <div class="row form-group">
                                         <div class="col-md-12">
-                                            <input type="submit" value="Register as Employer" class="btn btn-primary  py-2 px-5">
+                                            <input type="submit" value="Register as Helper" class="btn btn-primary  py-2 px-5">
                                         </div>
                                     </div>
 

@@ -79,7 +79,7 @@
                     <p class="h3 text-white mb-5">Is Waiting For You</p>
                     <p>
                         <a href="{{ route('register') }}" class="btn btn-outline-success py-3 px-4">Job Seeker</a>
-                        <a href="{{ route('employer') }}" class="btn btn-outline-warning py-3 px-4">Employer</a>
+                        <a href="{{ route('helper') }}" class="btn btn-outline-warning py-3 px-4">Helper</a>
                     </p>
 
                 </div>

@@ -10,10 +10,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class EmployerRegisterController extends Controller
+class HelperRegisterController extends Controller
 {
     //
-//    public function employerRegister(array $data){
+//    public function helperRegister(array $data){
 //        return Validator::make($data, [
 //            'name' => ['required', 'string', 'max:255'],
 //            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -24,7 +24,7 @@ class EmployerRegisterController extends Controller
 //    }
 
 
-    protected function employerRegister(Request $request)
+    protected function helperRegister(Request $request)
     {
         $this->validate($request, [
             'company_name' => ['required', 'string', 'max:255'],
