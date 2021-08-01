@@ -9,7 +9,7 @@
                         <div class="row">
 
                             <div class="col-md-12 col-lg-8 mb-5">
-                                <h1 style="padding-left: 6rem">Job Seeker Registration</h1>
+                                <h1 style="padding-left: 6rem">Help Seeker Registration</h1>
                                 <form method="POST" action="{{ route('register') }}" class="p-5 bg-white">
                                     @csrf
 

@@ -23,7 +23,7 @@
                                 <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
 
                                 <ul class="site-menu js-clone-nav d-none d-lg-block">
-                                    <li><a href="{{ route('advisor') }}">Profiles</a></li>
+                                    <li><a href="{{ route('advisor') }}">Advisors</a></li>
                                     @auth
                                         @if(Auth::user()->user_type == 'helper')
                                             <li><a href="{{ route('job.create') }}"><span class="bg-primary btn btn-primary btn-lg rounded"><span class="icon-plus mr-3"></span>Add New Profile</span></a></li>

@@ -23,7 +23,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="100">
-                    <h2 class="mb-5 h3">Advisors who joined recently: </h2>
+                    <h2 class="mb-5 h3">Recent Jobs</h2>
                     <div class="rounded border jobs-wrap">
 
                         @foreach($jobs as $job)
@@ -75,10 +75,10 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-6 text-center" data-aos="fade">
-                    <h1 class="h3 mb-0">Lorem Ipsum</h1>
-                    <p class="h3 text-white mb-5">What areyou Waiting For?</p>
+                    <h1 class="h3 mb-0">Your Dream Job</h1>
+                    <p class="h3 text-white mb-5">Is Waiting For You</p>
                     <p>
-                        <a href="{{ route('register') }}" class="btn btn-outline-success py-3 px-4">Seek Help</a>
+                        <a href="{{ route('register') }}" class="btn btn-outline-success py-3 px-4">Job Seeker</a>
                         <a href="{{ route('helper') }}" class="btn btn-outline-warning py-3 px-4">Helper</a>
                     </p>
 

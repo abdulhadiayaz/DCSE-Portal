@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Advisor;
 use App\Http\Requests\AdvisorRequest;
-use App\Job;
+use App\Topic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,16 +18,16 @@ class AdvisorController extends Controller
 
     public function show($id, $slug){
         $advisor = Advisor::whereId($id)->where('slug',$slug)->first();
-        return view('companies.show', compact('advisor'));
+        return view('advisors.show', compact('advisor'));
     }
 
     public function advisor(){
-        $companies = Advisor::paginate(12);
-        return view('companies.companies', compact('companies'));
+        $advisors = Advisor::paginate(12);
+        return view('advisors.advisors', compact('advisors'));
     }
 
     public function advisorProfile(){
-        return view('companies.profile');
+        return view('advisors.profile');
     }
 
     public function advisorProfileUpdate(AdvisorRequest $request){

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Recent Jobs</h1>
+        <h1>Recent Advisors</h1>
         <br>
         <div class="row">
             <div class="col-md-12">
@@ -17,7 +17,7 @@
                 <tbody>
                 @foreach($jobs as $job)
                     <tr class="table-row" data-href="{{ route('job.show', [$job->id, $job->slug]) }}">
-                        <td><img src="{{ asset($job->company->logo) }}" width="70"></td>
+                        <td><img src="{{ asset($job->advisor->logo) }}" width="70"></td>
                         <td><a href="{{ route('job.show', [$job->id, $job->slug]) }}" class="fa"><span style="font-size: 17px;">{{ $job->position }}</span></a>
                             <br>
                             <i class="fa fa-clock-o"></i> <span style="font-size: 15px;">{{ $job->type }}</span>
@@ -34,20 +34,20 @@
             <a href="{{ route('all.jobs') }}" class="btn btn-dark btn-lg btn-block">Browse all Jobs</a>
         </div>
         <br><br>
-        <h1>Featured Companies</h1>
+        <h1>Featured Advisors</h1>
         <br>
     </div>
 
     <div class="container">
         <div class="row">
-            @foreach($companies as $company)
+            @foreach($advisors as $advisor)
                 <div class="col-md-3">
                     <div class="card">
-                        <img src="{{ $company->cover_photo ? asset($company->cover_photo) : asset('cover/tumblr-image-sizes-banner.png') }}" class="card-img-top" height="150">
+                        <img src="{{ $advisor->cover_photo ? asset($advisor->cover_photo) : asset('cover/tumblr-image-sizes-banner.png') }}" class="card-img-top" height="150">
                         <div class="card-body">
-                            <h5 class="card-title"><strong>{{ $company->company_name }}</strong></h5>
-                            <p class="card-text">{{ Str::limit($company->description, 30) }}</p>
-                            <a href="{{ route('company.show', [$company->id, $company->slug]) }}" class="btn btn-outline-primary">Visit Company</a>
+                            <h5 class="card-title"><strong>{{ $advisor->advisor_name }}</strong></h5>
+                            <p class="card-text">{{ Str::limit($advisor->description, 30) }}</p>
+                            <a href="{{ route('advisor.show', [$advisor->id, $advisor->slug]) }}" class="btn btn-outline-primary">Visit Advisor</a>
                         </div>
                     </div>
                     <br>
