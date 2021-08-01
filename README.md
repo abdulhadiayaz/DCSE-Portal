@@ -8,6 +8,7 @@ Install all the dependencies:
 Rename env.example and make sure to setup your db in .env file
 
 After that, run:
+
     php artisan key:generate
     php artisan migrate
     php artisan db:seed
