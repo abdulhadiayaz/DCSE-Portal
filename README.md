@@ -7,7 +7,8 @@ Install all the dependencies:
 
 Make sure to setup your db in .env file
 
-Short cut commands
+Short cut commands:
+
      php artisan key:generate
      php artisan migrate
      php artisan migrate:refresh
