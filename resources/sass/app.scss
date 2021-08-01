@@ -1,0 +1,30 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+.fa{
+    color: #4183D7;
+}
+
+.table-row{
+    cursor: pointer;
+}
+
+.company_detals{
+    margin-right: 3rem;
+}
+
+//.company-logo{
+//    width: 150px;
+//    height: 150px;
+//    background-color: #f8fafc;
+//    border: 1px solid #dee2e6;
+//    border-radius: 1rem;
+//    margin-top: 5px;
+//}
