@@ -26,7 +26,7 @@
                                     <li><a href="{{ route('advisor') }}">Advisors</a></li>
                                     @auth
                                         @if(Auth::user()->user_type == 'helper')
-                                            <li><a href="{{ route('job.create') }}"><span class="bg-primary btn btn-primary btn-lg rounded"><span class="icon-plus mr-3"></span>Add New Profile</span></a></li>
+                                            <li><a href="{{ route('job.create') }}"><span class="bg-primary btn btn-primary btn-lg rounded"><span class="icon-plus mr-3"></span>Add Specialised  Profile</span></a></li>
                                         @endif
                                             <li class="nav-item dropdown">
 
@@ -37,11 +37,11 @@
                                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                                     @if(Auth::user()->user_type == 'seeker')
                                                         <a class="dropdown-item" href="{{ route('user.profile') }}">{{ __('Profile') }}</a>
-                                                        <a class="dropdown-item" href="{{ route('home') }}">{{ __('Saved Jobs') }}</a>
+                                                        <a class="dropdown-item" href="{{ route('home') }}">{{ __('Saved Profiles') }}</a>
                                                     @elseif(Auth::user()->user_type == 'helper')
-                                                        <a class="dropdown-item" href="{{ route('advisor.profile') }}">{{ __('Advisor Profile') }}</a>
-                                                        <a class="dropdown-item" href="{{ route('jobs.applicants') }}">{{ __('Applicants') }}</a>
-                                                        <a class="dropdown-item" href="{{ route('job.my.jobs') }}">{{ __('My Jobs') }}</a>
+                                                        <a class="dropdown-item" href="{{ route('advisor.profile') }}">{{ __('Profile') }}</a>
+                                                        <a class="dropdown-item" href="{{ route('jobs.applicants') }}">{{ __('Requests') }}</a>
+                                                        <a class="dropdown-item" href="{{ route('job.my.jobs') }}">{{ __('My Specialized Profile') }}</a>
                                                     @endif
                                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                                        onclick="event.preventDefault();

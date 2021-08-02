@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     @include('includes.flash_message')
-                    <div class="card-header"><h3>Create a Job</h3></div>
+                    <div class="card-header"><h3>Create a Specialized Profile</h3></div>
 
                     <form action="{{ route('job.store') }}" method="post">
                         @csrf
@@ -33,6 +33,21 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="category">Category</label>
+                                <select name="category_id" class="form-control @error('category_id') is-invalid @enderror">
+                                    <option value="">Select Category...</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('category_id')
+                                <div class="error" style="color: red">
+                                    {{ $errors->first('category_id') }}
+                                </div>
+                                @enderror
+                            </div>
+
+            {{--                <div class="form-group">
                                 <label for="roles">Roles</label>
                                 <textarea name="roles" class="form-control @error('roles') is-invalid @enderror">{{ old('roles') }}</textarea>
                                 @error('roles')
@@ -40,7 +55,8 @@
                                     {{ $errors->first('roles') }}
                                 </div>
                                 @enderror
-                            </div>
+                            </div>  
+                            
 
                             <div class="form-group">
                                 <label for="category">Category</label>
@@ -143,6 +159,16 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="deadline">Application Deadline</label>
+                                <input type="date" id="datepicker" name="deadline" class="form-control @error('deadline') is-invalid @enderror" value="{{ old('deadline') }}">
+                                @error('deadline')
+                                <div class="error" style="color: red">
+                                    {{ $errors->first('v') }}
+                                </div>
+                                @enderror
+                            </div>
+                            --}}
+                            <div class="form-group">
                                 @php
                                     $status = ['Draft', 'Live'];
                                 @endphp
@@ -158,17 +184,7 @@
                                     {{ $errors->first('status') }}
                                 </div>
                                 @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label for="deadline">Application Deadline</label>
-                                <input type="date" id="datepicker" name="deadline" class="form-control @error('deadline') is-invalid @enderror" value="{{ old('deadline') }}">
-                                @error('deadline')
-                                <div class="error" style="color: red">
-                                    {{ $errors->first('v') }}
-                                </div>
-                                @enderror
-                            </div>
+                            </div> 
 
                             <div class="form-group">
                                 <button type="submit" class="btn btn-dark">Submit</button>

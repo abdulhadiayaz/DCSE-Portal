@@ -67,7 +67,7 @@
                                 @if(Auth::user()->profile->cover_letter && Auth::user()->profile->resume)
                                     <apply-component :topicid="{{ $topic->id }}"></apply-component>
                                 @else
-                                    <a class="btn btn-dark btn-block" href="{{ route('user.profile') }}"><i class="icon-check"></i> Apply</a>
+                                    <a class="btn btn-dark btn-block" href="{{ route('user.profile') }}"><i class="icon-check"></i> Contact</a>
                     <p class="text-center"><small style="color: darkred"><strong>Upload your Cover Letter and Resume in other to apply</strong></small></p>
                     @endif
                     @else
@@ -76,7 +76,7 @@
                     <br>
                     <favourite-component :topicid="{{ $topic->id }}" :favourited="{{ $topic->checkSaved() ? 'true' : 'false' }}"></favourite-component>
                     @else
-                        <p class="bg-secondary text-center" style="color: white;">Please login to apply this topic</p>
+                        <p class="bg-secondary text-center" style="color: white;">Please login to contact this advisor</p>
                         @endif
                         </p>
 

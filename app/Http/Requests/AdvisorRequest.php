@@ -28,7 +28,7 @@ class AdvisorRequest extends FormRequest
             'address' => 'required',
             'phone' => 'required|numeric',
             'website' => 'required',
-            'slogan' => 'required',
+            'semester' => 'required',
             'description' => 'required',
         ];
     }

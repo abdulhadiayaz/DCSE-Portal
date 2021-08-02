@@ -20,7 +20,7 @@
                         <p> {{$job->description}}.</p>
 
                     </div>
-                    <div class="p-4 mb-8 bg-white">
+     {{--           <div class="p-4 mb-8 bg-white">
                         <!--icon-align-left mr-3-->
                         <h3 class="h5 text-black mb-3">Roles and Responsibilities</h3>
                         <p>{{$job->roles}} .</p>
@@ -45,7 +45,7 @@
                         <h3 class="h5 text-black mb-3">Salary</h3>
                         <p>{{$job->salary}}</p>
                     </div>
-
+                    --}}
                 </div>
 
 
@@ -53,43 +53,46 @@
                     <ul class="list-group">
                         <li class="list-group-item text-center" style="background-color: #f8f9fa">Short Info</li>
                         <li class="list-group-item"><i class="icon-home"></i> <strong>Advisor name: </strong><span class="float-right"> {{$job->advisor->advisor_name}}</span></li>
-                        <li class="list-group-item"><i class="icon-map-marker"></i> <strong>Address:</strong> <span class="float-right"> {{$job->address}}</span></li>
-                        <li class="list-group-item"><i class="icon-globe"></i> <strong>Employment Type:</strong> <span class="float-right"> {{$job->type}}</span></li>
-                        <li class="list-group-item"><i class="icon-briefcase"></i> <strong>Position:</strong> <span class="float-right"> {{$job->position}}</span></li>
+                        <li class="list-group-item"><i class="icon-map-marker"></i> <strong>Address:</strong> <span class="float-right"> {{$job->advisor->address}}</span></li>
+                        <li class="list-group-item"><i class="icon-globe"></i> <strong>Semester:</strong> <span class="float-right"> {{$job->advisor->semester}}</span></li>
+            {{--        <li class="list-group-item"><i class="icon-briefcase"></i> <strong>Position:</strong> <span class="float-right"> {{$job->position}}</span></li>
                         <li class="list-group-item"><i class="icon-calendar"></i> <strong>Posted:</strong> <span class="float-right"> {{$job->created_at->diffForHumans()}}</span></li>
                         <li class="list-group-item"><i class="icon-clock-o"></i> <strong>Deadline:</strong><span class="float-right"> {{ date('F d, Y', strtotime($job->last_date)) }}</span></li>
+                        --}}
                     </ul>
 
                     <p><a href="{{route('advisor.show',[$job->advisor->id, $job->advisor->slug])}}" class="btn btn-warning btn-block">Visit Advisor Page</a></p>
                     <p>
                         @if(Auth::check() && Auth::user()->user_type=='seeker')
                             @if(!$job->checkApplication())
-                                @if(Auth::user()->profile->cover_letter && Auth::user()->profile->resume)
+                                {{-- @if(Auth::user()->profile->cover_letter && Auth::user()->profile->resume) --}}
                                     <apply-component :jobid="{{ $job->id }}"></apply-component>
-                                @else
-                                    <a class="btn btn-dark btn-block" href="{{ route('user.profile') }}"><i class="icon-check"></i> Apply</a>
-                    <p class="text-center"><small style="color: darkred"><strong>Upload your Cover Letter and Resume in other to apply</strong></small></p>
-                    @endif
+                                {{-- @else
+                                    <a class="btn btn-dark btn-block" href="{{ route('user.profile') }}"><i class="icon-check"></i> Contact</a>  --}}
+                    {{-- <p class="text-center"><small style="color: darkred"><strong>Upload your Cover Letter and Resume in other to apply</strong></small></p> --}}
+                   {{-- @endif --}}
                     @else
-                        <span class="btn btn-block" style="background-color: rgba(131,146,143,0.89); color: white; cursor: default;">Already Applied!</span>
+                        <span class="btn btn-block" style="background-color: rgba(131,146,143,0.89); color: white; cursor: default;">Already Contacted!</span>
                     @endif
                     <br>
                     <favourite-component :jobid="{{ $job->id }}" :favourited="{{ $job->checkSaved() ? 'true' : 'false' }}"></favourite-component>
                     @else
-                        <p class="bg-secondary text-center" style="color: white;">Please login to apply this job</p>
+                        <p class="bg-secondary text-center" style="color: white;">Please login as seeker to contact this advisor</p>
                         @endif
                         </p>
 
                 </div>
 
                 @foreach($jobRecommendations as $jobRecommendation)
-                    <div class="col-md-3">
+                    <div class="col-md-3 pt-5">
                         <div class="card">
+                            <img src="{{ $job->advisor->logo ? asset($job->advisor->logo) : asset('avatar/man.jpg') }}" class="card-img-top" >
+
                             <div class="card-body">
                                 <p class="badge badge-success">{{$jobRecommendation->type}}</p>
                                 <h5 class="card-title">{{$jobRecommendation->position}}</h5>
-                                <p class="card-text">{{str_limit($jobRecommendation->description,90)}}</p>
-                                <div style="text-align: center;"> <a href="{{route('job.show',[$jobRecommendation->id,$jobRecommendation->slug])}}" class="btn btn-success">Apply</a></div>
+                                <p style="text-align: center;" class="card-text ">{{str_limit($jobRecommendation->title,90)}}</p>
+                                <div style="text-align: center;"> <a href="{{route('job.show',[$jobRecommendation->id,$jobRecommendation->slug])}}" class="btn btn-success">Contact</a></div>
                             </div>
                         </div>
                     </div>

@@ -33,28 +33,19 @@
                                 </div>
                                 <div class="job-details h-100">
                                     <div class="p-3 align-self-center">
-                                        <h3>{{ $job->position }}</h3>
+                                        <h3>{{ $job->title }}</h3>
                                         <div class="d-block d-lg-flex">
-                                            <div class="mr-3"><span class="icon-home2 mr-1">{{ $job->advisor->advisor_name }}</span> </div>
-                                            <div class="mr-3"><span class="icon-room mr-1"></span> {{ $job->address }}</div>
-                                            <div><span class="icon-money mr-1"></span> {{ $job->salary }}</div>
+                                            <div class="mr-4"><span class="icon-user mr-1">  {{ $job->advisor->advisor_name }}</span> </div>
+                                            <div class="mr-4"><span class="icon-room mr-2"></span>{{ $job->advisor->address }}</div>
+                                            <div><span class="icon-book mr-1"></span>{{ $job->advisor->semester }}</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="job-category align-self-center">
-                                    @if($job->type == 'Fulltime')
+                                    
                                         <div class="p-3">
-                                            <span class="text-info p-2 rounded border border-info">{{ $job->type }}</span>
+                                            <span class="text-success p-2 rounded border border-success">Contact</span>
                                         </div>
-                                    @elseif($job->type == 'Part-Time')
-                                        <div class="p-3">
-                                            <span class="text-warning p-2 rounded border border-warning">{{ $job->type }}</span>
-                                        </div>
-                                    @else
-                                        <div class="p-3">
-                                            <span class="text-primary p-2 rounded border border-primary">{{ $job->type }}</span>
-                                        </div>
-                                    @endif
                                 </div>
                             </a>
                         @endforeach
@@ -75,7 +66,7 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-6 text-center" data-aos="fade">
-                    <h1 class="h3 mb-0">Your Dream Job</h1>
+                    <h1 class="h3 mb-0">Lorem Ipsum</h1>
                     <p class="h3 text-white mb-5">Is Waiting For You</p>
                     <p>
                         <a href="{{ route('register') }}" class="btn btn-outline-success py-3 px-4">Job Seeker</a>

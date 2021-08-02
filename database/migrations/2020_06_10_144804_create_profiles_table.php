@@ -17,13 +17,14 @@ class CreateProfilesTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->string('address')->nullable();
+            $table->string('semester')->nullable();
             $table->string('phone')->nullable();
             $table->string('gender')->nullable();
             $table->string('date_of_birth')->nullable();
-            $table->string('experience')->nullable();
+            //$table->string('experience')->nullable();
             $table->text('biography')->nullable();
-            $table->string('cover_letter')->nullable();
-            $table->string('resume')->nullable();
+            //$table->string('cover_letter')->nullable();
+           // $table->string('resume')->nullable();
             $table->string('avatar')->nullable();
             $table->timestamps();
         });

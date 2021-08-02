@@ -13,12 +13,12 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>Address</th>
+                                    <th>Department</th>
                                     <th>Gender</th>
-                                    <th>Experience</th>
+                                    <!-- <th>Experience</th> -->
                                     <th>Biography</th>
-                                    <th>Cover Letter</th>
-                                    <th>Resume</th>
+                                    <!-- <th>Cover Letter</th>
+                                    <th>Resume</th> -->
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -28,10 +28,10 @@
                                         <td>{{ $applicant->email }}</td>
                                         <td>{{ $applicant->profile->address }}</td>
                                         <td>{{ $applicant->profile->gender }}</td>
-                                        <td>{{ $applicant->profile->experience }}</td>
+                                        <!-- <td>{{ $applicant->profile->experience }}</td> -->
                                         <td>{{ $applicant->profile->biography }}</td>
-                                        <td><a target="_blank" href="{{ asset($applicant->profile->cover_letter) }}"><i class="fa fa-file-pdf-o"></i> Cover Letter</a></td>
-                                        <td><a target="_blank" href="{{ asset($applicant->profile->resume) }}"><i class="fa fa-file-pdf-o"></i> Resume</a></td>
+                                        <!-- <td><a target="_blank" href="{{ asset($applicant->profile->cover_letter) }}"><i class="fa fa-file-pdf-o"></i> Cover Letter</a></td>
+                                        <td><a target="_blank" href="{{ asset($applicant->profile->resume) }}"><i class="fa fa-file-pdf-o"></i> Resume</a></td> -->
                                     </tr>
                                 @endforeach
                                 </tbody>

@@ -15,9 +15,9 @@
                                 <p>{{ $advisor->description }}</p>
                             </div>
                         </div>
-                        <h1>{{ $advisor->advisor_name }}</h1>
+                        <h1 class="d-flex justify-content-center">{{ $advisor->advisor_name }}</h1>
                         <div class="row text-center">
-                            <div class="col-md-3"><i class="icon-lightbulb-o"></i> <strong>Slogan:</strong> {{ $advisor->slogan }}</div>
+                            <div class="col-md-3"><i class="icon-lightbulb-o"></i> <strong>Semester:</strong> {{ $advisor->semester }}</div>
                             <div class="col-md-3"><i class="icon-map-marker"></i> {{ $advisor->address }}</div>
                             <div class="col-md-3"><i class="icon-phone"></i> {{ $advisor->phone }}</div>
                             <div class="col-md-3"><i class="icon-globe"></i> <a href="{{ $advisor->website }}" target="_blank">{{ $advisor->website }}</a></div>
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <br>
-                <h4 style="margin-top: 3rem">Job Vacancies</h4>
+                <h4 style="margin-top: 3rem">Specialized Profile</h4>
                 <div class="rounded border jobs-wrap">
 
                     @foreach($advisor->jobs as $job)

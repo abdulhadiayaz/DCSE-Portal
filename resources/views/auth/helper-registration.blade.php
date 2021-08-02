@@ -17,10 +17,10 @@
 
                                     <div class="form-group row">
 
-                                        <div class="col-md-12">Advisor name</div>
+                                        <div class="col-md-12">Name</div>
 
                                         <div class="col-md-12">
-                                            <input id="name" type="text" placeholder="Advisor name" class="form-control{{ $errors->has('advisor_name') ? ' is-invalid' : '' }}" name="advisor_name" value="{{ old('advisor_name') }}" required autofocus>
+                                            <input id="name" type="text" placeholder="Name" class="form-control{{ $errors->has('advisor_name') ? ' is-invalid' : '' }}" name="advisor_name" value="{{ old('advisor_name') }}" required autofocus>
 
                                             @if ($errors->has('advisor_name'))
                                                 <span class="invalid-feedback" role="alert">

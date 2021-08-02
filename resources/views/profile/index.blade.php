@@ -11,7 +11,7 @@
                     @csrf
                     <br>
                     <div class="card">
-                        <div class="card-header">Update Avatar</div>
+                        <div class="card-header">Update Profile Picture</div>
                         <div class="card-body">
                             <input type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar" onchange="readURL(this)">
                             <div style="color: darkred; font-size: 11px;">250px x 250px to fit better</div>
@@ -34,11 +34,21 @@
                         <div class="card-header">Update Your Profile</div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="">Address</label>
+                                <label for="">Department</label>
                                 <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" value="{{ old('address', Auth::user()->profile->address) }}">
                                 @if($errors->has('address'))
                                     <div class="error" style="color: red">
                                         {{ $errors->first('address') }}
+                                    </div>
+                                @endif
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Semester</label>
+                                <input type="text" name="semester" class="form-control @error('semester') is-invalid @enderror" value="{{ old('semester', Auth::user()->profile->semester) }}" placeholer="Xth Semester">
+                                @if($errors->has('semester'))
+                                    <div class="error" style="color: red">
+                                        {{ $errors->first('semester') }}
                                     </div>
                                 @endif
                             </div>
@@ -52,7 +62,7 @@
                                     </div>
                                 @endif
                             </div>
-
+{{--
                             <div class="form-group">
                                 <label for="">Experience</label>
                                 <textarea name="experience" placeholder="Enter your experience" class="form-control @error('experience') is-invalid @enderror">{{ old('experience', Auth::user()->profile->experience) }}</textarea>
@@ -62,6 +72,7 @@
                                     </div>
                                 @endif
                             </div>
+                            --}}
 
                             <div class="form-group">
                                 <label for="">Biography</label>
@@ -89,7 +100,7 @@
                         <li class="list-group-item"><strong>Address:</strong><span class="float-right">{{ Auth::user()->profile->address }}</span></li>
                         <li class="list-group-item"><strong>Gender:</strong><span class="float-right">{{ ucfirst(Auth::user()->profile->gender) }}</span></li>
                         <li class="list-group-item"><strong>Member Since:</strong><span class="float-right">{{ date('F j, Y', strtotime(Auth::user()->created_at)) }}</span></li>
-                        <li class="list-group-item">
+                {{--    <li class="list-group-item">
                             @if(Auth::user()->profile->cover_letter)
                                 <strong><i class="fa fa-file-pdf-o"></i> <a href="{{ asset(Auth::user()->profile->cover_letter) }}" target="_blank">Cover Letter</a></strong>
                             @else
@@ -103,11 +114,11 @@
                             @endif
 
 
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
                 <br>
-                <div class="card">
+            {{-- <div class="card">
                     <div class="card-header">Update Cover Letter</div>
                     <form action="{{ route('profile.seeker.cover') }}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -135,13 +146,13 @@
                             @if($errors->has('resume'))
                                 <div class="error" style="color: red">
                                     {{ $errors->first('resume') }}
-                                </div>
+                        </div>
                             @endif
                             <br>
                             <button type="submit" class="btn btn-dark"><i class="fa fa-upload"></i> Upload</button>
                         </div>
                     </form>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

@@ -11,7 +11,7 @@
                     @csrf
                     <br>
                     <div class="card">
-                        <div class="card-header">Update Advisor Photo</div>
+                        <div class="card-header">Update Profile Picture</div>
                         <div class="card-body">
                             <input type="file" class="form-control @error('logo') is-invalid @enderror" name="logo" onchange="readURL(this)">
                             @if($errors->has('logo'))
@@ -30,14 +30,24 @@
                 <div class="card">
                     <form action="{{ route('advisor.profile.update') }}" method="post">
                         @csrf
-                        <div class="card-header">Update Your Advisor Information</div>
+                        <div class="card-header">Update Your Information</div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="">Address</label>
+                                <label for="">Department</label>
                                 <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" value="{{ old('address', Auth::user()->advisor->address) }}">
                                 @if($errors->has('address'))
                                     <div class="error" style="color: red">
                                         {{ $errors->first('address') }}
+                                    </div>
+                                @endif
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Semester</label>
+                                <input type="text" name="semester" class="form-control @error('semester') is-invalid @enderror" value="{{ old('semester', Auth::user()->advisor->semester) }}" placeholer="Xth Semester">
+                                @if($errors->has('semester'))
+                                    <div class="error" style="color: red">
+                                        {{ $errors->first('semester') }}
                                     </div>
                                 @endif
                             </div>
@@ -62,18 +72,9 @@
                                 @endif
                             </div>
 
-                            <div class="form-group">
-                                <label for="">Slogan</label>
-                                <input type="text" name="slogan" class="form-control @error('slogan') is-invalid @enderror" value="{{ old('slogan', Auth::user()->advisor->slogan) }}">
-                                @if($errors->has('slogan'))
-                                    <div class="error" style="color: red">
-                                        {{ $errors->first('slogan') }}
-                                    </div>
-                                @endif
-                            </div>
 
                             <div class="form-group">
-                                <label for="">Description</label>
+                                <label for="">Introduction</label>
                                 <textarea name="description" class="form-control">{{ old('description', Auth::user()->advisor->description) }}</textarea>
                                 @if($errors->has('description'))
                                     <div class="error" style="color: red">

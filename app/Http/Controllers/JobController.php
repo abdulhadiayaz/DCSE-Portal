@@ -19,7 +19,7 @@ class JobController extends Controller
     }
 
     public function index(){
-        $jobs = Job::latest()->where('status', 1)->whereDate('deadline','>',date('Y-F-d'))->limit(10)->get();
+        $jobs = Job::latest()->where('status', 1)->where('id','>','0')->limit(10)->get();
         $categories = Category::with('jobs')->get();
 //        $companies = Advisor::all()->random(8);
         return view('welcome', compact('jobs', 'categories'));
@@ -31,21 +31,21 @@ class JobController extends Controller
         $data = array();
         $jobsBasedOnCategories = Job::latest()
             ->where('category_id', $job->category_id)
-            ->whereDate('deadline','>',date('Y-F-d'))
+        //    ->whereDate('deadline','>',date('Y-F-d'))
             ->where('id', "!=", $job->id)
             ->where('status', 1)
             ->limit(6)
             ->get();
         $jobsBasedOnCompanies = Job::latest()
             ->where('advisor_id', $job->advisor_id)
-            ->whereDate('deadline','>',date('Y-F-d'))
+        //    ->whereDate('deadline','>',date('Y-F-d'))
             ->where('id', "!=", $job->id)
             ->where('status', 1)
             ->limit(6)
             ->get();
         $jobsBasedOnPositions = Job::latest()
-            ->where('position', 'LIKE', '%'.$job->position.'%')
-            ->whereDate('deadline','>',date('Y-F-d'))
+        //    ->where('position', 'LIKE', '%'.$job->position.'%')
+        //    ->whereDate('deadline','>',date('Y-F-d'))
             ->where('id', "!=", $job->id)
             ->where('status', 1)
             ->limit(6)
@@ -82,7 +82,7 @@ class JobController extends Controller
         $inputs['advisor_id'] = Auth::user()->advisor->id;
         $inputs['slug'] = Str::slug($request->title);
         Job::create($inputs);
-        return redirect()->back()->with('success', 'Job Created with Success');
+        return redirect()->back()->with('success', 'Specialized Profile Successfully Created!');
     }
 
     public function update(JobRequest $request){
@@ -90,7 +90,7 @@ class JobController extends Controller
         $inputs = $request->except('id');
         $inputs['slug'] = Str::slug($request->title);
         $job->update($inputs);
-        return redirect()->back()->with('success', 'Job Updated with Success');
+        return redirect()->back()->with('success', 'Specialized Profile Successfully Updated!');
     }
 
     public function apply($id){

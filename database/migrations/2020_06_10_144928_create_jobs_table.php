@@ -17,16 +17,16 @@ class CreateJobsTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('advisor_id');
-            $table->string('category_id');
+        //    $table->string('category_id')->nullable();
             $table->string('title');
             $table->string('slug');
             $table->text('description');
-            $table->text('roles');
-            $table->string('position');
-            $table->string('address');
-            $table->string('type');
+        //    $table->text('roles')->nullable();
+        //    $table->string('position')->nullable();
+        //    $table->string('address')->nullable();
+        //    $table->string('type')->nullable();
             $table->integer('status');
-            $table->date('deadline');
+        //    $table->date('deadline')->nullable();
             $table->timestamps();
         });
     }
