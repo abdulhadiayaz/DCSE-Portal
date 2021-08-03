@@ -15,7 +15,8 @@
             <div class="py-1">
                 <div class="row align-items-center">
                     <div class="col-2">
-                        <h2 class="mb-0 site-logo"><a href="{{ url('/') }}">D-<strong class="font-weight-bold">Portal</strong><sup><i class="icon-briefcase"></i></sup> </a></h2>
+                        <!-- <h2 class="mb-0 site-logo"><a href="{{ url('/') }}">D-<strong class="font-weight-bold">Portal</strong><sup><i class="icon-briefcase"></i></sup> </a></h2> -->
+                       <a href="{{ url('/') }}"> <img src="{{ asset('external/images/dcseportal.png') }}" alt="" class="dcse-logo"></a>
                     </div>
                     <div class="col-10">
                         <nav class="site-navigation text-right" role="navigation">
@@ -41,7 +42,7 @@
                                                     @elseif(Auth::user()->user_type == 'helper')
                                                         <a class="dropdown-item" href="{{ route('advisor.profile') }}">{{ __('Profile') }}</a>
                                                         <a class="dropdown-item" href="{{ route('jobs.applicants') }}">{{ __('Requests') }}</a>
-                                                        <a class="dropdown-item" href="{{ route('job.my.jobs') }}">{{ __('My Specialized Profile') }}</a>
+                                                        <a class="dropdown-item" href="{{ route('job.my.jobs') }}">{{ __('My Specialized Profiles') }}</a>
                                                     @endif
                                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                                        onclick="event.preventDefault();

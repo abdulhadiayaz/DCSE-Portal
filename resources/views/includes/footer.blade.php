@@ -13,12 +13,9 @@
                     <div class="col-md-6">
                         <h3 class="footer-heading mb-4 text-white">Quick Menu</h3>
                         <ul class="list-unstyled">
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Approach</a></li>
-                            <li><a href="#">Sustainability</a></li>
-                            <li><a href="#">News</a></li>
-                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Seek Help</a></li>
+                            <li><a href="#">Sign up as helper</a></li>
+                            <li><a href="#">Login</a></li>
                         </ul>
                     </div>
                     <div class="col-md-6">
@@ -51,7 +48,7 @@
             <div class="col-md-12">
                 <p>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy; <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script>  by <a href="https://github.com/monthe-wilfried?tab=repositories" target="_blank" >Monthe Wilfried</a>
+                    Copyright &copy; <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script>  by <a href="https://devhadi.live" target="_blank" >DCSE Portal</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
             </div>

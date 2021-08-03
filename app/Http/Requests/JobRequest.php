@@ -30,7 +30,7 @@ class JobRequest extends FormRequest
             'description' => 'required',
             // 'roles' => 'required',
             // 'position' => 'required',
-            // 'address' => 'required',
+            //'address' => 'required',
             // 'type' => 'required',
             // 'deadline' => 'required',
             'status' => 'required',

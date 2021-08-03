@@ -50,7 +50,9 @@ class JobController extends Controller
             ->where('status', 1)
             ->limit(6)
             ->get();
-        array_push($data, $jobsBasedOnCategories, $jobsBasedOnCompanies, $jobsBasedOnPositions);
+        //array_push($data, $jobsBasedOnCategories, $jobsBasedOnCompanies, $jobsBasedOnPositions);
+        array_push($data, $jobsBasedOnCategories, $jobsBasedOnCompanies);
+        
         // Converts this array into a collection
         $collection = collect($data);
         // Here i am removing duplicated jobs based on the id
@@ -109,33 +111,34 @@ class JobController extends Controller
         // front search
         $search = $request->search;
         $address = $request->address;
-        if ($search || $address){
-            $jobs = Job::with('advisor')->where('position', 'LIKE', '%'.$search.'%')
-                ->orWhere('title','like', '%'.$search.'%' )
-                ->orWhere('type','like', '%'.$search.'%' )
-                ->orWhere('address','like', '%'.$search.'%' )
+        //if ($search || $address){
+        if ($search){
+            //$jobs = Job::with('advisor')->where('position', 'LIKE', '%'.$search.'%')
+            $jobs = Job::where('title','like', '%'.$search.'%' )
+            //    ->orWhere('type','like', '%'.$search.'%' )
+             //   ->orWhere('address','like', '%'.$search.'%' )
                 ->paginate(10);
             return view('jobs.all-jobs', compact('jobs'));
         }
         else{
 
             $keyword = $request->title;
-            $type = $request->type;
+            //$type = $request->type;
             $category = $request->category_id;
-            $address = $request->address;
+            //$address = $request->address;
 
             if ($keyword){
                 $jobs = Job::where('title', 'LIKE', '%'.$keyword.'%')->where('status', 1)->paginate(10);
             }
-            elseif ($type){
-                $jobs = Job::where('type', $type)->where('status', 1)->paginate(10);
-            }
+            //elseif ($type){
+            //    $jobs = Job::where('type', $type)->where('status', 1)->paginate(10);
+            //}
             elseif ($category){
                 $jobs = Job::where('category_id', $category)->where('status', 1)->paginate(10);
             }
-            elseif ($address){
-                $jobs = Job::where('address', 'LIKE', '%'.$address.'%')->where('status', 1)->paginate(10);
-            }
+            //elseif ($address){
+            //    $jobs = Job::where('address', 'LIKE', '%'.$address.'%')->where('status', 1)->paginate(10);
+           // }
             else{
                 $jobs = Job::latest()->where('status', 1)->paginate(10);
             }
@@ -148,7 +151,7 @@ class JobController extends Controller
     public function searchJobs(Request $request){
         $keyword = $request->keyword;
         $jobs = Job::where('title', 'LIKE', '%'.$keyword.'%')
-                    ->orWhere('position', 'LIKE', '%'.$keyword.'%')
+                   // ->orWhere('position', 'LIKE', '%'.$keyword.'%')
                     ->limit(5)->get();
         return response()->json($jobs);
     }

@@ -23,7 +23,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="100">
-                    <h2 class="mb-5 h3">Recent Jobs</h2>
+                    <h2 class="mb-5 h3">Topics</h2>
                     <div class="rounded border jobs-wrap">
 
                         @foreach($jobs as $job)
@@ -59,15 +59,15 @@
         </div>
     </div>
 
-    @include('includes.testimonial')
+   {{-- @include('includes.testimonial') --}}
 
 
-    <div class="site-blocks-cover overlay inner-page" style="background-image: url('{{ asset('external/images/hero_1.jpg') }}');" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="site-blocks-cover overlay inner-page" style="background-image: url('{{ asset('external/images/img_5.jpg') }}');" data-aos="fade" data-stellar-background-ratio="0.5">
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-6 text-center" data-aos="fade">
-                    <h1 class="h3 mb-0">Lorem Ipsum</h1>
-                    <p class="h3 text-white mb-5">Is Waiting For You</p>
+                    <h1 class="h3 mb-0">Join Now</h1>
+                    <p class="h3 text-white mb-5">What are you waiting for?</p>
                     <p>
                         <a href="{{ route('register') }}" class="btn btn-outline-success py-3 px-4">Job Seeker</a>
                         <a href="{{ route('helper') }}" class="btn btn-outline-warning py-3 px-4">Helper</a>
@@ -79,7 +79,7 @@
     </div>
 
 
-
+{{--
     <div class="site-section site-block-feature bg-light">
         <div class="container">
 
@@ -117,7 +117,7 @@
             </div>
         </div>
     </div>
-
+    --}}
     @include('includes.footer')
 
 </body>
