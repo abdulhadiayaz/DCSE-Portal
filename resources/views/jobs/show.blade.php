@@ -16,7 +16,7 @@
                     @include('includes.flash_message')
                     <div class="p-4 mb-8 bg-white">
                         <!-- icon-book mr-3-->
-                        <h3 class="h5 text-black mb-3">Description <a href="#" title="Mail this Job to a Friend" data-toggle="modal" data-target="#exampleModal1"><i class="icon-envelope-square" style="font-size: 34px;float:right;color:green;"></i><i class="icon-hand-o-right float-right" style="margin-right: 4px;"></i></a></h3>
+                        <h3 class="h5 text-black mb-3">Description <a href="#" title="Mail this Profile to a Friend" data-toggle="modal" data-target="#exampleModal1"><i class="icon-envelope-square" style="font-size: 34px;float:right;color:green;"></i><i class="icon-hand-o-right float-right" style="margin-right: 4px;"></i></a></h3>
                         <p> {{$job->description}}.</p>
 
                     </div>
