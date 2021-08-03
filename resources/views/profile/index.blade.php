@@ -97,7 +97,7 @@
                         <li class="list-group-item" style="background-color: rgba(0, 0, 0, 0.03);">Your Information</li>
                         <li class="list-group-item"><strong>Name:</strong><span class="float-right">{{ Auth::user()->name }}</span></li>
                         <li class="list-group-item"><strong>Email:</strong><span class="float-right">{{ Auth::user()->email }}</span></li>
-                        <li class="list-group-item"><strong>Address:</strong><span class="float-right">{{ Auth::user()->profile->address }}</span></li>
+                        <li class="list-group-item"><strong>Semester:</strong><span class="float-right">{{ Auth::user()->profile->address }}</span></li>
                         <li class="list-group-item"><strong>Gender:</strong><span class="float-right">{{ ucfirst(Auth::user()->profile->gender) }}</span></li>
                         <li class="list-group-item"><strong>Member Since:</strong><span class="float-right">{{ date('F j, Y', strtotime(Auth::user()->created_at)) }}</span></li>
                 {{--    <li class="list-group-item">
