@@ -59,7 +59,7 @@
                             </a>
                         @endforeach
                 @else
-                    <div style="text-align: center;">No Jobs Found</div>
+                    <div style="text-align: center;">Nothing Found</div>
                 @endif
             </div>
             {{ $jobs->appends(Request::except('page'))->render() }}

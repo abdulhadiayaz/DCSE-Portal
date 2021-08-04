@@ -53,7 +53,7 @@
                     <ul class="list-group">
                         <li class="list-group-item text-center" style="background-color: #f8f9fa">Short Info</li>
                         <li class="list-group-item"><i class="icon-home"></i> <strong>Advisor name: </strong><span class="float-right"> {{$job->advisor->advisor_name}}</span></li>
-                        <li class="list-group-item"><i class="icon-map-marker"></i> <strong>Address:</strong> <span class="float-right"> {{$job->advisor->address}}</span></li>
+                        <li class="list-group-item"><i class="icon-map-marker"></i> <strong>Department:</strong> <span class="float-right"> {{$job->advisor->address}}</span></li>
                         <li class="list-group-item"><i class="icon-globe"></i> <strong>Semester:</strong> <span class="float-right"> {{$job->advisor->semester}}</span></li>
             {{--        <li class="list-group-item"><i class="icon-briefcase"></i> <strong>Position:</strong> <span class="float-right"> {{$job->position}}</span></li>
                         <li class="list-group-item"><i class="icon-calendar"></i> <strong>Posted:</strong> <span class="float-right"> {{$job->created_at->diffForHumans()}}</span></li>
