@@ -19,23 +19,23 @@ Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Jobs
-Route::get('/jobs/{id}/{job}', 'JobController@show')->name('job.show');
-Route::get('/jobs/create', 'JobController@create')->name('job.create');
-Route::post('/jobs/store', 'JobController@store')->name('job.store');
-Route::get('/jobs/my-jobs', 'JobController@myJobs')->name('job.my.jobs');
-Route::get('/jobs/edit/{id}/{slug}', 'JobController@edit')->name('job.edit');
-Route::post('/jobs/update', 'JobController@update')->name('job.update');
+Route::get('/topic/{id}/{job}', 'JobController@show')->name('job.show');
+Route::get('/topic/create', 'JobController@create')->name('job.create');
+Route::post('/topic/store', 'JobController@store')->name('job.store');
+Route::get('/topic/my-profiles', 'JobController@myJobs')->name('job.my.jobs');
+Route::get('/topic/edit/{id}/{slug}', 'JobController@edit')->name('job.edit');
+Route::post('/topic/update', 'JobController@update')->name('job.update');
 /////////////////////////////// Apply ///////////////////////////
 Route::get('/applications/{id}', 'JobController@apply')->name('apply')->middleware('verified');
-Route::get('/jobs/applications', 'JobController@applicants')->name('jobs.applicants');
-Route::get('/jobs/all', 'JobController@allJobs')->name('all.jobs');
+Route::get('/topic/applications', 'JobController@applicants')->name('jobs.applicants');
+Route::get('/topic/all', 'JobController@allJobs')->name('all.jobs');
 
 ///////////////////////////Save and Unsave Jobs /////////////////
 Route::get('/save/{id}', 'FavouriteController@saveJob');
 Route::get('/unsave/{id}', 'FavouriteController@unSaveJob');
 
 ///////////////////////////// Search Jobs //////////////////////
-Route::post('/jobs/search', 'JobController@searchJobs');
+Route::post('/topic/search', 'JobController@searchJobs');
 
 // advisors
 Route::get('/advisors', 'AdvisorController@advisor')->name('advisor');
