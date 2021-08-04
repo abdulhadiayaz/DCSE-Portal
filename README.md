@@ -1,6 +1,10 @@
 
 ## DBMS Project
 
+It is a portal  made for students to seek and provide help to each other.
+
+Live link: https://dcseportal.azurewebsites.net/
+
 Install all the dependencies:
 
     composer install
@@ -11,10 +15,9 @@ After that, run:
 
     php artisan key:generate
     php artisan migrate
-    php artisan db:seed
     php artisan serve
 
-Short cut commands:
+Some short-cut commands:
 
      composer clearcache
      php artisan config:clear
