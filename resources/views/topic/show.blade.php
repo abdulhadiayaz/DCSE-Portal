@@ -55,10 +55,6 @@
                         <li class="list-group-item"><i class="icon-home"></i> <strong>Advisor name: </strong><span class="float-right"> {{$job->advisor->advisor_name}}</span></li>
                         <li class="list-group-item"><i class="icon-map-marker"></i> <strong>Department:</strong> <span class="float-right"> {{$job->advisor->address}}</span></li>
                         <li class="list-group-item"><i class="icon-globe"></i> <strong>Semester:</strong> <span class="float-right"> {{$job->advisor->semester}}</span></li>
-            {{--        <li class="list-group-item"><i class="icon-briefcase"></i> <strong>Position:</strong> <span class="float-right"> {{$job->position}}</span></li>
-                        <li class="list-group-item"><i class="icon-calendar"></i> <strong>Posted:</strong> <span class="float-right"> {{$job->created_at->diffForHumans()}}</span></li>
-                        <li class="list-group-item"><i class="icon-clock-o"></i> <strong>Deadline:</strong><span class="float-right"> {{ date('F d, Y', strtotime($job->last_date)) }}</span></li>
-                        --}}
                     </ul>
 
                     <p><a href="{{route('advisor.show',[$job->advisor->id, $job->advisor->slug])}}" class="btn btn-warning btn-block">Visit Advisor Page</a></p>
@@ -137,7 +133,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Mail this Job</button>
+                                    <button type="submit" class="btn btn-primary">Mail this Profile</button>
                                 </div>
                             </form>
                         </div>
