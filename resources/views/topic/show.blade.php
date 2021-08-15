@@ -6,90 +6,89 @@
             <div class="row" id="app"> <!-- the id app is used to display vue JS components -->
 
                 <div class="title" style="margin-top: 8rem; padding-left: 1rem;">
-                    <h2>{{$topic->title}}</h2>
+                    <h2>{{$job->title}}</h2>
                 </div>
 
-                <img src="{{asset('hero-topic-image.jpg')}}" style="width: 100%;">
+                <img src="{{asset('hero-job-image.jpg')}}" style="width: 100%;">
 
                 <div class="col-lg-8">
                     <br>
                     @include('includes.flash_message')
                     <div class="p-4 mb-8 bg-white">
                         <!-- icon-book mr-3-->
-                        <h3 class="h5 text-black mb-3">Description <a href="#" title="Mail this Advisor to a Friend" data-toggle="modal" data-target="#exampleModal1"><i class="icon-envelope-square" style="font-size: 34px;float:right;color:green;"></i><i class="icon-hand-o-right float-right" style="margin-right: 4px;"></i></a></h3>
-                        <p> {{$topic->description}}.</p>
+                        <h3 class="h5 text-black mb-3">Description <a href="#" title="Mail this Profile to a Friend" data-toggle="modal" data-target="#exampleModal1"><i class="icon-envelope-square" style="font-size: 34px;float:right;color:green;"></i><i class="icon-hand-o-right float-right" style="margin-right: 4px;"></i></a></h3>
+                        <p> {{$job->description}}.</p>
 
                     </div>
-                    <div class="p-4 mb-8 bg-white">
+     {{--           <div class="p-4 mb-8 bg-white">
                         <!--icon-align-left mr-3-->
                         <h3 class="h5 text-black mb-3">Roles and Responsibilities</h3>
-                        <p>{{$topic->roles}} .</p>
+                        <p>{{$job->roles}} .</p>
 
                     </div>
                     <div class="p-4 mb-8 bg-white">
                         <h3 class="h5 text-black mb-3">Number of vacancy</h3>
-                        <p>{{$topic->number_of_vacancy}}</p>
+                        <p>{{$job->number_of_vacancy}}</p>
 
                     </div>
                     <div class="p-4 mb-8 bg-white">
                         <h3 class="h5 text-black mb-3">Experience</h3>
-                        <p>{{$topic->experience}} years</p>
+                        <p>{{$job->experience}} years</p>
 
                     </div>
                     <div class="p-4 mb-8 bg-white">
                         <h3 class="h5 text-black mb-3">Gender</h3>
-                        <p>{{$topic->gender}} </p>
+                        <p>{{$job->gender}} </p>
 
                     </div>
                     <div class="p-4 mb-8 bg-white">
                         <h3 class="h5 text-black mb-3">Salary</h3>
-                        <p>{{$topic->salary}}</p>
+                        <p>{{$job->salary}}</p>
                     </div>
-
+                    --}}
                 </div>
 
 
                 <div class="col-md-4 p-4 site-section bg-light">
                     <ul class="list-group">
                         <li class="list-group-item text-center" style="background-color: #f8f9fa">Short Info</li>
-                        <li class="list-group-item"><i class="icon-home"></i> <strong>Advisor name: </strong><span class="float-right"> {{$topic->advisor->advisor_name}}</span></li>
-                        <li class="list-group-item"><i class="icon-map-marker"></i> <strong>Address:</strong> <span class="float-right"> {{$topic->address}}</span></li>
-                        <li class="list-group-item"><i class="icon-globe"></i> <strong>Employment Type:</strong> <span class="float-right"> {{$topic->type}}</span></li>
-                        <li class="list-group-item"><i class="icon-briefcase"></i> <strong>Position:</strong> <span class="float-right"> {{$topic->position}}</span></li>
-                        <li class="list-group-item"><i class="icon-calendar"></i> <strong>Posted:</strong> <span class="float-right"> {{$topic->created_at->diffForHumans()}}</span></li>
-                        <li class="list-group-item"><i class="icon-clock-o"></i> <strong>Deadline:</strong><span class="float-right"> {{ date('F d, Y', strtotime($topic->last_date)) }}</span></li>
+                        <li class="list-group-item"><i class="icon-home"></i> <strong>Advisor name: </strong><span class="float-right"> {{$job->advisor->advisor_name}}</span></li>
+                        <li class="list-group-item"><i class="icon-map-marker"></i> <strong>Department:</strong> <span class="float-right"> {{$job->advisor->address}}</span></li>
+                        <li class="list-group-item"><i class="icon-globe"></i> <strong>Semester:</strong> <span class="float-right"> {{$job->advisor->semester}}</span></li>
                     </ul>
 
-                    <p><a href="{{route('advisor.show',[$topic->advisor->id, $topic->advisor->slug])}}" class="btn btn-warning btn-block">Visit Advisor Page</a></p>
+                    <p><a href="{{route('advisor.show',[$job->advisor->id, $job->advisor->slug])}}" class="btn btn-warning btn-block">Visit Advisor Page</a></p>
                     <p>
                         @if(Auth::check() && Auth::user()->user_type=='seeker')
-                            @if(!$topic->checkApplication())
-                                @if(Auth::user()->profile->cover_letter && Auth::user()->profile->resume)
-                                    <apply-component :topicid="{{ $topic->id }}"></apply-component>
-                                @else
-                                    <a class="btn btn-dark btn-block" href="{{ route('user.profile') }}"><i class="icon-check"></i> Contact</a>
-                    <p class="text-center"><small style="color: darkred"><strong>Upload your Cover Letter and Resume in other to apply</strong></small></p>
-                    @endif
+                            @if(!$job->checkApplication())
+                                {{-- @if(Auth::user()->profile->cover_letter && Auth::user()->profile->resume) --}}
+                                    <apply-component :jobid="{{ $job->id }}"></apply-component>
+                                {{-- @else
+                                    <a class="btn btn-dark btn-block" href="{{ route('user.profile') }}"><i class="icon-check"></i> Contact</a>  --}}
+                    {{-- <p class="text-center"><small style="color: darkred"><strong>Upload your Cover Letter and Resume in other to apply</strong></small></p> --}}
+                   {{-- @endif --}}
                     @else
-                        <span class="btn btn-block" style="background-color: rgba(131,146,143,0.89); color: white; cursor: default;">Already Applied!</span>
+                        <span class="btn btn-block" style="background-color: rgba(131,146,143,0.89); color: white; cursor: default;">Already Contacted!</span>
                     @endif
                     <br>
-                    <favourite-component :topicid="{{ $topic->id }}" :favourited="{{ $topic->checkSaved() ? 'true' : 'false' }}"></favourite-component>
+                    <favourite-component :jobid="{{ $job->id }}" :favourited="{{ $job->checkSaved() ? 'true' : 'false' }}"></favourite-component>
                     @else
-                        <p class="bg-secondary text-center" style="color: white;">Please login to contact this advisor</p>
+                        <p class="bg-secondary text-center" style="color: white;">Please login as seeker to contact this advisor</p>
                         @endif
                         </p>
 
                 </div>
 
-                @foreach($topicRecommendations as $topicRecommendation)
-                    <div class="col-md-3">
+                @foreach($jobRecommendations as $jobRecommendation)
+                    <div class="col-md-3 pt-5">
                         <div class="card">
+                            <img src="{{ $job->advisor->logo ? asset($job->advisor->logo) : asset('avatar/man.jpg') }}" class="card-img-top" >
+
                             <div class="card-body">
-                                <p class="badge badge-success">{{$topicRecommendation->type}}</p>
-                                <h5 class="card-title">{{$topicRecommendation->position}}</h5>
-                                <p class="card-text">{{str_limit($topicRecommendation->description,90)}}</p>
-                                <div style="text-align: center;"> <a href="{{route('topic.show',[$topicRecommendation->id,$topicRecommendation->slug])}}" class="btn btn-success">Apply</a></div>
+                                <p class="badge badge-success">{{$jobRecommendation->type}}</p>
+                                <h5 class="card-title">{{$jobRecommendation->position}}</h5>
+                                <p style="text-align: center;" class="card-text ">{{str_limit($jobRecommendation->title,90)}}</p>
+                                <div style="text-align: center;"> <a href="{{route('job.show',[$jobRecommendation->id,$jobRecommendation->slug])}}" class="btn btn-success">Contact</a></div>
                             </div>
                         </div>
                     </div>
@@ -102,7 +101,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Send topic to your friend</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Send job to your friend</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -111,8 +110,8 @@
                                 @csrf
 
                                 <div class="modal-body">
-                                    <input type="hidden" name="topic_id" value="{{$topic->id}}">
-                                    <input type="hidden" name="topic_slug" value="{{$topic->slug}}">
+                                    <input type="hidden" name="job_id" value="{{$job->id}}">
+                                    <input type="hidden" name="job_slug" value="{{$job->slug}}">
 
                                     <div class="form-goup">
                                         <label>Your name * </label>
@@ -134,7 +133,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Mail this topic</button>
+                                    <button type="submit" class="btn btn-primary">Mail this Profile</button>
                                 </div>
                             </form>
                         </div>
@@ -149,5 +148,6 @@
 
         </div>
     </div>
+    
 @endsection
 

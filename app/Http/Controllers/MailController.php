@@ -27,7 +27,7 @@ class MailController extends Controller
         $friend_email = $request->friend_email;
         try {
             Mail::to($friend_email)->send(new SendJob($data));
-            return redirect()->back()->with('success', 'Job Sent Successfully to '. $friend_email);
+            return redirect()->back()->with('success', 'Profile Sent Successfully to '. $friend_email);
         }
         catch (\Exception $exception){
             return redirect()->back()->with('error', 'Sorry, something went wrong. Please try again later.');

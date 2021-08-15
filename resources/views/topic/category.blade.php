@@ -2,40 +2,12 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center" style="margin-top: 8rem; margin-bottom: 4rem;">
-            <form action="{{ route('all.jobs') }}" method="get" style="margin-top: 3rem;">
-                <div class="form-inline">
-                    <div class="form-group mr-3">
-                        <label for="Keyword">Keyword&nbsp;</label>
-                        <input type="text" name="title" class="form-control">
-                    </div>
-
-                    <div class="form-group mr-5">
-                        <label for="category">Category&nbsp;</label>
-                        <select name="category_id" class="form-control" style="margin-right: 5px">
-                            <option value="">Select...</option>
-                            @foreach(\App\Category::all() as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-{{--
-                    <div class="form-group mr-3">
-                        <label for="address">Department&nbsp;</label>
-                        <input type="text" name="address" class="form-control" style="margin-right: 5px">
-                    </div>
---}}
-                    <div class="form-group">
-                        <input type="submit" value="Search" class="btn btn-outline-primary" style="width:120px;padding:15px;">
-                    </div>
-                </div>
-                <br>
-            </form>
-
+        <div class="row justify-content-center" style="margin-top:10rem; margin-bottom: 4rem;">
+            <h1 style="margin-bottom: 5rem;">{{ $category->name }}</h1>
 
             <div class="rounded border jobs-wrap" style="width: 100%; margin-bottom: 3rem;%" >
-                @if(count($jobs) > 0)
-                    @foreach($jobs as $job)
+
+            @foreach($jobs as $job)
                             <a href="{{ route('job.show', [$job->id, $job->slug]) }}" class="job-item d-block d-md-flex align-items-center  border-bottom fulltime">
                                 <div class="company-logo blank-logo text-center text-md-left pl-3">
                                     <img src="{{ $job->advisor->logo ? asset($job->advisor->logo) : asset('avatar/man.jpg') }}" alt="Image" class="img-fluid mx-auto">
@@ -58,9 +30,6 @@
                                 </div>
                             </a>
                         @endforeach
-                @else
-                    <div style="text-align: center;">Nothing Found</div>
-                @endif
             </div>
             {{ $jobs->appends(Request::except('page'))->render() }}
         </div>

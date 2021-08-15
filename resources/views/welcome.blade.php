@@ -52,7 +52,7 @@
                     </div>
 
                     <div class="col-md-12 text-center mt-5">
-                        <a href="{{ route('all.jobs') }}" class="btn btn-primary rounded py-3 px-5"><span class="icon-plus-circle"></span> Show More Jobs</a>
+                        <a href="{{ route('all.jobs') }}" class="btn btn-primary rounded py-3 px-5"><span class="icon-plus-circle"></span> Show More Profiles</a>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                     <h1 class="h3 mb-0">Join Now</h1>
                     <p class="h3 text-white mb-5">What are you waiting for?</p>
                     <p>
-                        <a href="{{ route('register') }}" class="btn btn-outline-success py-3 px-4">Job Seeker</a>
+                        <a href="{{ route('register') }}" class="btn btn-outline-success py-3 px-4">Help Seeker</a>
                         <a href="{{ route('helper') }}" class="btn btn-outline-warning py-3 px-4">Helper</a>
                     </p>
 
@@ -77,47 +77,6 @@
             </div>
         </div>
     </div>
-
-
-{{--
-    <div class="site-section site-block-feature bg-light">
-        <div class="container">
-
-            <div class="text-center mb-5 section-heading">
-                <h2>Why Choose Us</h2>
-            </div>
-
-            <div class="d-block d-md-flex border-bottom">
-                <div class="text-center p-4 item border-right" data-aos="fade">
-                    <span class="flaticon-worker display-3 mb-3 d-block text-primary"></span>
-                    <h2 class="h4">More Jobs Every Day</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati reprehenderit explicabo quos fugit vitae dolorum.</p>
-                    <p><a href="#">Read More <span class="icon-arrow-right small"></span></a></p>
-                </div>
-                <div class="text-center p-4 item" data-aos="fade">
-                    <span class="flaticon-wrench display-3 mb-3 d-block text-primary"></span>
-                    <h2 class="h4">Creative Jobs</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati reprehenderit explicabo quos fugit vitae dolorum.</p>
-                    <p><a href="#">Read More <span class="icon-arrow-right small"></span></a></p>
-                </div>
-            </div>
-            <div class="d-block d-md-flex">
-                <div class="text-center p-4 item border-right" data-aos="fade">
-                    <span class="flaticon-stethoscope display-3 mb-3 d-block text-primary"></span>
-                    <h2 class="h4">Healthcare</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati reprehenderit explicabo quos fugit vitae dolorum.</p>
-                    <p><a href="#">Read More <span class="icon-arrow-right small"></span></a></p>
-                </div>
-                <div class="text-center p-4 item" data-aos="fade">
-                    <span class="flaticon-calculator display-3 mb-3 d-block text-primary"></span>
-                    <h2 class="h4">Finance &amp; Accounting</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati reprehenderit explicabo quos fugit vitae dolorum.</p>
-                    <p><a href="#">Read More <span class="icon-arrow-right small"></span></a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    --}}
     @include('includes.footer')
 
 </body>

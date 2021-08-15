@@ -12,21 +12,21 @@
                             <thead>
                             </thead>
                             <tbody>
-                            @foreach($topics as $topic)
-                                <tr class="table-row" data-href="{{ route('topic.show', [$topic->id, $topic->slug]) }}">
-                                    <td><img src="{{ asset($topic->advisor->logo) }}" width="70"></td>
-                                    <td><a href="{{ route('topic.show', [$topic->id, $topic->slug]) }}" class="fa"><span style="font-size: 17px;">{{ Str::title($topic->position) }}</span></a>
+                            @foreach($jobs as $job)
+                                <tr class="table-row" data-href="{{ route('job.show', [$job->id, $job->slug]) }}">
+                                    <td><img src="{{ asset($job->advisor->logo) }}" width="70"></td>
+                                    <td><a href="{{ route('job.show', [$job->id, $job->slug]) }}" class="fa"><span style="font-size: 17px;">{{ Str::title($job->title) }}</span></a>
                                         <br>
-                                        <i class="fa fa-clock-o"></i> <span style="font-size: 15px;">{{ $topic->type }}</span>
+                                        <i class="fa fa-clock-o"></i> <span style="font-size: 15px;">{{ $job->type }}</span>
                                     </td>
-                                    <td><i class="fa fa-map-marker"></i> {{ Str::title($topic->address) }}</td>
-                                    <td><i class="fa fa-calendar"></i> {{ $topic->created_at->diffForHumans() }}</td>
-                                    <td><a href="{{ route('topic.edit', [$topic->id, $topic->slug]) }}" class="btn btn-dark"><i class="fa fa-edit"></i> Edit</a></td>
+                                    <td><i class="fa fa-map-marker"></i> {{ Str::title($job->address) }}</td>
+                                    <td><i class="fa fa-calendar"></i> {{ $job->created_at->diffForHumans() }}</td>
+                                    <td><a href="{{ route('job.edit', [$job->id, $job->slug]) }}" class="btn btn-dark"><i class="fa fa-edit"></i> Edit</a></td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
-                        {{ $topics->render() }}
+                        {{ $jobs->render() }}
                     </div>
                 </div>
             </div>

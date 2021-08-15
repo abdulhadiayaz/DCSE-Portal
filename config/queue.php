@@ -71,7 +71,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Failed Queue Jobs
+    | Failed Queue Profiles
     |--------------------------------------------------------------------------
     |
     | These options configure the behavior of failed queue job logging so you

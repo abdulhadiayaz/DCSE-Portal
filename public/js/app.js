@@ -37649,7 +37649,7 @@ var render = function() {
           )
         : _c("div", { staticClass: "alert alert-success" }, [
             _c("i", { staticClass: "fa fa-check-circle" }),
-            _vm._v(" Application sent Successfully!\n        ")
+            _vm._v("Contact Request sent Successfully!\n        ")
           ])
     ])
   ])

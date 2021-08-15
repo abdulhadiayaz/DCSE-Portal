@@ -16,7 +16,7 @@
                     @include('includes.flash_message')
                     <div class="p-4 mb-8 bg-white">
                         <!-- icon-book mr-3-->
-                        <h3 class="h5 text-black mb-3">Description <a href="#" title="Mail this Job to a Friend" data-toggle="modal" data-target="#exampleModal1"><i class="icon-envelope-square" style="font-size: 34px;float:right;color:green;"></i><i class="icon-hand-o-right float-right" style="margin-right: 4px;"></i></a></h3>
+                        <h3 class="h5 text-black mb-3">Description <a href="#" title="Mail this Profile to a Friend" data-toggle="modal" data-target="#exampleModal1"><i class="icon-envelope-square" style="font-size: 34px;float:right;color:green;"></i><i class="icon-hand-o-right float-right" style="margin-right: 4px;"></i></a></h3>
                         <p> {{$job->description}}.</p>
 
                     </div>
@@ -53,7 +53,7 @@
                     <ul class="list-group">
                         <li class="list-group-item text-center" style="background-color: #f8f9fa">Short Info</li>
                         <li class="list-group-item"><i class="icon-home"></i> <strong>Advisor name: </strong><span class="float-right"> {{$job->advisor->advisor_name}}</span></li>
-                        <li class="list-group-item"><i class="icon-map-marker"></i> <strong>Address:</strong> <span class="float-right"> {{$job->advisor->address}}</span></li>
+                        <li class="list-group-item"><i class="icon-map-marker"></i> <strong>Department:</strong> <span class="float-right"> {{$job->advisor->address}}</span></li>
                         <li class="list-group-item"><i class="icon-globe"></i> <strong>Semester:</strong> <span class="float-right"> {{$job->advisor->semester}}</span></li>
             {{--        <li class="list-group-item"><i class="icon-briefcase"></i> <strong>Position:</strong> <span class="float-right"> {{$job->position}}</span></li>
                         <li class="list-group-item"><i class="icon-calendar"></i> <strong>Posted:</strong> <span class="float-right"> {{$job->created_at->diffForHumans()}}</span></li>
@@ -137,7 +137,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Mail this Job</button>
+                                    <button type="submit" class="btn btn-primary">Mail this Profile</button>
                                 </div>
                             </form>
                         </div>
